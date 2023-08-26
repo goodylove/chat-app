@@ -1,11 +1,10 @@
 import { render, screen } from "@testing-library/react";
-import GoogleButton from "react-google-button";
 
 import NavBar from ".";
 
 test("nav bar render correctly", () => {
   render(<NavBar />);
-  const textEl = screen.getByText(/chat app/i);
+  const textEl = screen.getByText(/let's chat/i);
   const btn = screen.queryByRole("button", {
     name: /sign out/i,
   });
