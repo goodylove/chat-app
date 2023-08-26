@@ -11,8 +11,8 @@ function NavBar() {
     auth.signOut();
   };
   return (
-    <nav className="flex w-full justify-between px-3 bg-black py-3 items-center fixed top-0">
-      <div className="text-2xl font-bold text-white">Let's Chat</div>
+    <nav className="flex w-full justify-between px-3 bg-black py-3 items-center fixed top-0 font-serif">
+      <div className="text-2xl font-bold text-white font-serif">Let's Chat</div>
 
       {user ? (
         <button
