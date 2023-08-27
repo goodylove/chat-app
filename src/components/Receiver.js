@@ -1,4 +1,4 @@
-function Receiver() {
+function Receiver({ message }) {
   return (
     <div className="flex my-2">
       {/* <div className="flex flex-col">
@@ -11,7 +11,7 @@ function Receiver() {
       </div> */}
       <div className="">
         <span className="bg-white p-3 rounded-r-lg rounded-bl-lg w-fit  relative">
-          hello nwachukwu goodness
+          {message}
           <span className="text-[6px]  absolute top-8 right-1 ">3:20pm</span>
         </span>
         {/* if there is image it will display here */}

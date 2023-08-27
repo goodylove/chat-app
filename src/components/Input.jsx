@@ -21,32 +21,35 @@ function Input({ scroll }) {
       uid,
     });
     setMessage("");
+    console.log("ok");
     scroll.current.scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <div className=" p-3  flex bg-white justify-between items-center fixed bottom-0 w-full ">
+    <form
+      className=" p-3  flex bg-white justify-between items-center fixed bottom-0 w-full "
+      onSubmit={sendMessage}
+    >
       <input
         type="text"
         placeholder="enter your text"
         className=" outline-none bg-white "
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
       />
       <div className="flex gap-2 items-center">
         <img src="/attachment.png" alt="" className="w-5 h-5" />
-        <input
-          type="file"
-          id="file"
-          className="hidden"
-          value={message}
-          onChange={(e) => sendMessage(e.target.value)}
-        />
+        <input type="file" id="file" className="hidden" />
         <label htmlFor="file">
           <img src="gallery_input.png" alt="" className="w-5 h-5" />
         </label>
-        <button className="bg-gray-500 rounded-sm py-1 px-2 text-sm  text-white">
+        <button
+          className="bg-gray-500 rounded-sm py-1 px-2 text-sm  text-white"
+          type="submit"
+        >
           Send
         </button>
       </div>
-    </div>
+    </form>
   );
 }
 

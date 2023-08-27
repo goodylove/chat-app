@@ -8,6 +8,7 @@ import "./App.css";
 
 function App() {
   const [user] = useAuthState(auth);
+  console.log(user);
   return (
     <main className="App">
       <NavBar />
