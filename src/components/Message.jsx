@@ -9,9 +9,9 @@ function Message({ message }) {
   return (
     <div className=" flex-1 my-4">
       {message.uid === user.uid ? (
-        <Sender message={message.text} />
+        <Sender message={message} />
       ) : (
-        <Receiver message={message.text} />
+        <Receiver message={message} />
       )}
     </div>
   );

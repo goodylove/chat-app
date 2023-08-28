@@ -4,22 +4,22 @@ import { DbContext } from "./DbContext";
 import Message from "./Message";
 
 function Sender({ message }) {
-  const messageTime = new Date(message.createdAt);
-  console.log(messageTime);
+  // const messageTime = new Date(message.createdAt);
+  console.log(message);
   return (
     <>
       <div className="flex flex-row-reverse gap-6 ml-auto my-2 pr-2">
         <div>
-          <span className="bg-white p-3 rounded-r-lg rounded-bl-lg w-fit   relative">
-            {message}
+          <span className="bg-white  rounded-r-lg rounded-bl-lg w-fit   relative">
+            {message.text}
 
-            <div className="text-[7px]    flex items-center absolute top-8 right-0  gap-1 ">
-              <span></span>
+            <div className="text-[7px] flex items-center absolute top-8 right-0  gap-1 ">
+              <span>{message.name}</span>
               {/* <span className="">{Icons.messasegeNotRecieved()}</span> */}
             </div>
           </span>
           {/* if there is image it will display here */}
-          <img src="" alt="" />
+          {message.avatar && <img src={message.avatar} alt="" />}
         </div>
       </div>
     </>

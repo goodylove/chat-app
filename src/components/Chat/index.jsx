@@ -20,12 +20,11 @@ function Chat() {
   useEffect(() => {
     const q = query(
       collection(db, "messages"),
-      orderBy("createdAt", "desc"),
+      orderBy("createdAt", "asc"),
       limit(10)
     );
 
     const unsubscribe = onSnapshot(q, (QuerySnapshot) => {
-      console.log(q);
       const getMassege = [];
       QuerySnapshot.forEach((doc) => {
         getMassege.push({ ...doc.data(), id: doc.id });
@@ -33,7 +32,6 @@ function Chat() {
 
       // const sorted = getMassege.sort((a, b) => a.createdAt - b.createdAt);
       setMessages(getMassege);
-      console.log(message);
     });
     return () => unsubscribe;
   }, []);
@@ -41,13 +39,20 @@ function Chat() {
   return (
     <main className=" md:basis-8/12">
       {/* chart info start */}
-
       {/* chart info  ends */}
-
-      {message?.map((message) => {
-        return <Messages key={message.id} message={message} />;
-      })}
-
+      {message.length > 0 ? (
+        message.map((message) => {
+          return <Messages key={message.id} message={message} />;
+        })
+      ) : (
+        <div className="flex justify-center items-center h-[67vh] flex-col">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2665/2665038.png"
+            width={100}
+          />
+          <span className=" font-serif">Start a Conversation</span>
+        </div>
+      )}
       <span ref={scroll}></span>
       <>
         <Input scroll={scroll} />
